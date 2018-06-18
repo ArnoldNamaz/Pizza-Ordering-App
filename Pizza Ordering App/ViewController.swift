@@ -9,10 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var sideMenuConstraint: NSLayoutConstraint!
+    @IBOutlet weak var OriginalVeggieLabel: UILabel!
+   
+    
+    var isSlideMenuHidden = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        sideMenuConstraint.constant = -140
+    
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +28,37 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func organizeBtnPressed(_ sender: UIBarButtonItem) {
+        if isSlideMenuHidden {
+            sideMenuConstraint.constant = 0
+        } else {
+            sideMenuConstraint.constant = -140
+        }
+        isSlideMenuHidden = !isSlideMenuHidden
+    }
+   
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
